@@ -155,7 +155,7 @@ namespace Lithnet.GoogleApps.MA
             try
             {
                 Logger.WriteLine($"Exporting {csentries.Count} object{(csentries.Count == 1 ? string.Empty : "s")} in parallel");
-
+                Logger.WriteLine($"Configured export threads: {MAConfigurationSection.Configuration.ExportThreads}");
                 Parallel.ForEach(csentries, po, (csentry) =>
                 {
                     this.PutExportEntry(results, csentry);

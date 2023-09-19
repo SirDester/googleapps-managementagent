@@ -585,7 +585,10 @@ namespace Lithnet.GoogleApps.MA
                 ManagedObjectPropertyName = "Websites",
                 IsPrimaryCandidateType = true,
                 KnownTypes = config.WebsitesAttributeFixedTypes?.ToList(),
-                SupportsPatch = false
+                SupportsPatch = false,
+                // Added by SirDester on 25/10/2022
+                ForceFixedTypeOnMissingType = false
+                // Added by SirDester on 25/10/2022
             };
 
             type.AttributeAdapters.Add(webSiteType);
@@ -677,7 +680,10 @@ namespace Lithnet.GoogleApps.MA
                 ManagedObjectPropertyName = "Locations",
                 IsPrimaryCandidateType = false,
                 KnownTypes = config.LocationsAttributeFixedTypes?.ToList(),
-                SupportsPatch = false
+                SupportsPatch = false,
+                // Added by SirDester on 25/10/2022
+                ForceFixedTypeOnMissingType = false
+                // Added by SirDester on 25/10/2022
             });
         }
 
@@ -703,7 +709,10 @@ namespace Lithnet.GoogleApps.MA
                 GoogleApiFieldName = "keywords",
                 ManagedObjectPropertyName = "Keywords",
                 KnownTypes = config.KeywordsAttributeFixedTypes?.ToList(),
-                SupportsPatch = false
+                SupportsPatch = false,
+                // Added by SirDester on 25/10/2022
+                ForceFixedTypeOnMissingType = false
+                // Added by SirDester on 25/10/2022
             });
         }
 
@@ -728,7 +737,10 @@ namespace Lithnet.GoogleApps.MA
                 ManagedObjectPropertyName = "Phones",
                 IsPrimaryCandidateType = true,
                 KnownTypes = config.PhonesAttributeFixedTypes?.ToList(),
-                SupportsPatch = false
+                SupportsPatch = false,
+                // Added by SirDester on 25/10/2022
+                ForceFixedTypeOnMissingType = false
+                // Added by SirDester on 25/10/2022
             };
 
             type.AttributeAdapters.Add(phonesType);
@@ -825,7 +837,10 @@ namespace Lithnet.GoogleApps.MA
                 ManagedObjectPropertyName = "Organizations",
                 IsPrimaryCandidateType = true,
                 KnownTypes = config.OrganizationsAttributeFixedTypes?.ToList(),
-                SupportsPatch = false
+                SupportsPatch = false,
+                // Added by SirDester on 25/10/2022
+                ForceFixedTypeOnMissingType = config.ForceOrganizationsFixedTypeOnMissingType
+                // Added by SirDester on 25/10/2022
             };
 
             type.AttributeAdapters.Add(customType);
@@ -942,7 +957,10 @@ namespace Lithnet.GoogleApps.MA
                 ManagedObjectPropertyName = "Addresses",
                 IsPrimaryCandidateType = true,
                 KnownTypes = config.AddressesAttributeFixedTypes?.ToList(),
-                SupportsPatch = false
+                SupportsPatch = false,
+                // Added by SirDester on 25/10/2022
+                ForceFixedTypeOnMissingType = false
+                // Added by SirDester on 25/10/2022
             };
 
             type.AttributeAdapters.Add(customType);
@@ -968,7 +986,10 @@ namespace Lithnet.GoogleApps.MA
                 GoogleApiFieldName = "relations",
                 ManagedObjectPropertyName = "Relations",
                 KnownTypes = config.RelationsAttributeFixedTypes?.ToList(),
-                SupportsPatch = false
+                SupportsPatch = false,
+                // Added by SirDester on 25/10/2022
+                ForceFixedTypeOnMissingType = false
+                // Added by SirDester on 25/10/2022
             };
 
             type.AttributeAdapters.Add(customType);
@@ -994,7 +1015,10 @@ namespace Lithnet.GoogleApps.MA
                 GoogleApiFieldName = "externalIds",
                 ManagedObjectPropertyName = "ExternalIds",
                 KnownTypes = config.ExternalIDsAttributeFixedTypes?.ToList(),
-                SupportsPatch = false
+                SupportsPatch = false,
+                // Added by SirDester on 25/10/2022
+                ForceFixedTypeOnMissingType = false
+                // Added by SirDester on 25/10/2022
             };
 
             type.AttributeAdapters.Add(customType);
@@ -1031,7 +1055,10 @@ namespace Lithnet.GoogleApps.MA
                 ManagedObjectPropertyName = "Ims",
                 IsPrimaryCandidateType = true,
                 KnownTypes = config.IMsAttributeFixedTypes?.ToList(),
-                SupportsPatch = false
+                SupportsPatch = false,
+                // Added by SirDester on 25/10/2022
+                ForceFixedTypeOnMissingType = false
+                // Added by SirDester on 25/10/2022
             };
 
             type.AttributeAdapters.Add(customType);

@@ -1298,6 +1298,15 @@
             <default-value></default-value>
           </parameter>
           <parameter>
+            <name>Force fixed type when type is not set</name>
+            <use>schema</use>
+            <page-number>1</page-number>
+            <type>checkbox</type>
+            <validation></validation>
+            <text></text>
+            <default-value>0</default-value>
+          </parameter>
+          <parameter>
             <name></name>
             <use>schema</use>
             <page-number>1</page-number>
@@ -1426,6 +1435,7 @@
         <parameter-values>
           <parameter name="Phones fixed types" type="text" use="schema" page-number="1">work</parameter>
           <parameter name="Organizations fixed types" type="text" use="schema" page-number="1">work</parameter>
+          <parameter name="Force fixed type when type is not set" type="checkbox" use="schema" page-number="1">0</parameter>
           <parameter name="IM Address fixed types" type="text" use="schema" page-number="1"></parameter>
           <parameter name="External IDs fixed types" type="text" use="schema" page-number="1"></parameter>
           <parameter name="Relations fixed types" type="text" use="schema" page-number="1"></parameter>

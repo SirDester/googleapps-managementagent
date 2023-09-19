@@ -63,6 +63,10 @@ namespace Lithnet.GoogleApps.MA
 
         bool SkipMemberImportOnArchivedCourses { get; }
 
+        // Added by SirDester on 25/10/2022
+        bool ForceOrganizationsFixedTypeOnMissingType { get; }
+        // Added by SirDester on 25/10/2022
+
         string GroupMemberAttributeName { get; }
 
         string GroupManagerAttributeName { get; }

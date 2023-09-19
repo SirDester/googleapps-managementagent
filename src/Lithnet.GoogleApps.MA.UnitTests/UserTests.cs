@@ -18,12 +18,12 @@ namespace Lithnet.GoogleApps.MA.UnitTests
         public void GetUsers()
         {
             return;
-            var userSchemaType = UnitTestControl.Schema[SchemaConstants.User];
-            var mmsUserSchemaType = UnitTestControl.MmsSchema.Types[SchemaConstants.User];
+            //var userSchemaType = UnitTestControl.Schema[SchemaConstants.User];
+            //var mmsUserSchemaType = UnitTestControl.MmsSchema.Types[SchemaConstants.User];
 
-            ApiInterfaceUser u = new ApiInterfaceUser(userSchemaType, UnitTestControl.TestParameters);
+            //ApiInterfaceUser u = new ApiInterfaceUser(userSchemaType, UnitTestControl.TestParameters);
 
-            u.GetObjectImportTask(UnitTestControl.MmsSchema, new BlockingCollection<object>(), CancellationToken.None).Wait();
+            //u.GetObjectImportTask(UnitTestControl.MmsSchema, new BlockingCollection<object>(), CancellationToken.None).Wait();
         }
 
         [TestMethod]

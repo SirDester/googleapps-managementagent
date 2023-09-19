@@ -13,7 +13,7 @@ using System.Runtime.CompilerServices;
 //
 [assembly: InternalsVisibleTo("Lithnet.GoogleApps.MA.UnitTests")]
 [assembly: AssemblyTitle("")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Recompiled based on 2.1.8060")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]

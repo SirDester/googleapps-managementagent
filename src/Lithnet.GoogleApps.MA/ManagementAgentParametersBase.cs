@@ -112,6 +112,9 @@ namespace Lithnet.GoogleApps.MA
         protected const string MakeNewSendAsAddressesDefaultParameter = "Make new SendAs addresses default";
 
         protected const string SkipMemberImportOnArchivedCoursesParameter = "Skip Member import on ARCHIVED Courses";
+        // Added by SirDester on 25/10/2022
+        protected const string ForceOrganizationsFixedTypeOnMissingTypeParameter = "Force fixed type when type is not set";
+        // Added by SirDester on 25/10/2022
 
         protected const string LicenseKeyParameter = "License key";
 
@@ -201,8 +204,6 @@ namespace Lithnet.GoogleApps.MA
                 return this.customerService;
             }
         }
-
-
 
         public DomainsRequestFactory DomainsService
         {
@@ -417,7 +418,7 @@ namespace Lithnet.GoogleApps.MA
                 return this.classroomService;
             }
         }
-        
+
         public X509Certificate2 Certificate
         {
             get

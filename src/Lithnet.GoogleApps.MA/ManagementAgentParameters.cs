@@ -25,6 +25,31 @@ namespace Lithnet.GoogleApps.MA
             this.configParameters = configParameters;
         }
 
+        // Added by SirDester on 25/10/2022
+        public bool ForceOrganizationsFixedTypeOnMissingType
+        {
+            get
+            {
+                if (configParameters.Contains(ManagementAgentParametersBase.ForceOrganizationsFixedTypeOnMissingTypeParameter))
+                {
+                    string value = configParameters[ManagementAgentParametersBase.ForceOrganizationsFixedTypeOnMissingTypeParameter].Value;
+                    if (string.IsNullOrWhiteSpace(value))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return Convert.ToBoolean(Convert.ToInt32(value));
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        // Added by SirDester on 25/10/2022
+
         public string CustomerID
         {
             get
@@ -838,6 +863,9 @@ namespace Lithnet.GoogleApps.MA
                     parameters.Add(ConfigParameterDefinition.CreateDividerParameter());
 
                     parameters.Add(ConfigParameterDefinition.CreateTextParameter(ManagementAgentParametersBase.OrganizationsFixedTypeFormatParameter, null));
+                    // Added by SirDester on 25/10/2022
+                    parameters.Add(ConfigParameterDefinition.CreateCheckBoxParameter(ManagementAgentParametersBase.ForceOrganizationsFixedTypeOnMissingTypeParameter, false));
+                    // Added by SirDester on 25/10/2022
                     parameters.Add(ConfigParameterDefinition.CreateDividerParameter());
 
                     parameters.Add(ConfigParameterDefinition.CreateTextParameter(ManagementAgentParametersBase.IMsFixedTypeFormatParameter, null));

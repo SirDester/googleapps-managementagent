@@ -817,6 +817,17 @@
             </default-value>
           </parameter>
           <parameter>
+            <name>Force fixed type when type is not set</name>
+            <use>schema</use>
+            <page-number>1</page-number>
+            <type>checkbox</type>
+            <validation>
+            </validation>
+            <text>
+            </text>
+            <default-value>0</default-value>
+          </parameter>
+          <parameter>
             <name>
             </name>
             <use>schema</use>

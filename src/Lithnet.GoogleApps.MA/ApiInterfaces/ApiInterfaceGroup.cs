@@ -246,9 +246,14 @@ namespace Lithnet.GoogleApps.MA
 
                 Regex filter = null;
 
-                if (this.config.GroupRegexFilter != null)
+                if (!string.IsNullOrEmpty(this.config.GroupRegexFilter))
                 {
                     filter = new Regex(this.config.GroupRegexFilter);
+                    Logger.WriteLine("Regex filter: " + this.config.GroupRegexFilter);
+                }
+                else
+                {
+                    Logger.WriteLine("Regex filter: <none>");
                 }
 
                 foreach (GoogleGroup group in this.config.GroupsService.GetGroups(this.config.CustomerID, membersRequired, settingsRequired, groupFields, MAConfigurationSection.Configuration.GroupSettingsApi.ImportThreadsGroupSettings, MAConfigurationSection.Configuration.DirectoryApi.ImportThreadsGroupMember, this.config.ExcludeUserCreated, filter))

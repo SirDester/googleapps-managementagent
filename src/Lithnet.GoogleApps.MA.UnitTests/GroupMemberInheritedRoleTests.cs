@@ -430,67 +430,67 @@ namespace Lithnet.GoogleApps.MA.UnitTests
         {
             return;
 
-            Group e = null;
+            //Group e = null;
 
-            try
-            {
-                e = UnitTestControl.CreateGroup();
+            //try
+            //{
+            //    e = UnitTestControl.CreateGroup();
 
-                Thread.Sleep(1000);
+            //    Thread.Sleep(1000);
 
-                CSEntryChange cs = CSEntryChange.Create();
-                cs.ObjectModificationType = ObjectModificationType.Update;
-                cs.DN = e.Email;
-                cs.ObjectType = SchemaConstants.Group;
-                cs.AnchorAttributes.Add(AnchorAttribute.Create("id", e.Id));
+            //    CSEntryChange cs = CSEntryChange.Create();
+            //    cs.ObjectModificationType = ObjectModificationType.Update;
+            //    cs.DN = e.Email;
+            //    cs.ObjectType = SchemaConstants.Group;
+            //    cs.AnchorAttributes.Add(AnchorAttribute.Create("id", e.Id));
 
-                List<object> addresses = new List<object>();
+            //    List<object> addresses = new List<object>();
 
-                for (int i = 0; i < 100; i++)
-                {
-                    string address = $"user{i}@lithnet.io";
-                    addresses.Add(address);
-                }
+            //    for (int i = 0; i < 100; i++)
+            //    {
+            //        string address = $"user{i}@lithnet.io";
+            //        addresses.Add(address);
+            //    }
 
-                //addresses.Add("notanaddress");
+            //    //addresses.Add("notanaddress");
 
-                cs.AttributeChanges.Add(AttributeChange.CreateAttributeAdd("externalMember", addresses));
+            //    cs.AttributeChanges.Add(AttributeChange.CreateAttributeAdd("externalMember", addresses));
 
-                CSEntryChangeResult result =
-                    ExportProcessor.PutCSEntryChange(cs, UnitTestControl.Schema.GetSchema().Types[SchemaConstants.Group], UnitTestControl.TestParameters);
+            //    CSEntryChangeResult result =
+            //        ExportProcessor.PutCSEntryChange(cs, UnitTestControl.Schema.GetSchema().Types[SchemaConstants.Group], UnitTestControl.TestParameters);
 
-                if (result.ErrorCode != MAExportError.Success)
-                {
-                    Assert.Fail(result.ErrorName);
-                }
+            //    if (result.ErrorCode != MAExportError.Success)
+            //    {
+            //        Assert.Fail(result.ErrorName);
+            //    }
 
-                Thread.Sleep(1000);
+            //    Thread.Sleep(1000);
 
-                CollectionAssert.AreEquivalent(addresses.ToArray(), UnitTestControl.TestParameters.GroupsService.MemberFactory.GetMembership(cs.DN).ExternalMembers.ToArray());
+            //    CollectionAssert.AreEquivalent(addresses.ToArray(), UnitTestControl.TestParameters.GroupsService.MemberFactory.GetMembership(cs.DN).ExternalMembers.ToArray());
 
-                cs = CSEntryChange.Create();
-                cs.ObjectModificationType = ObjectModificationType.Update;
-                cs.DN = e.Email;
-                cs.ObjectType = SchemaConstants.Group;
-                cs.AnchorAttributes.Add(AnchorAttribute.Create("id", e.Id));
-                cs.AttributeChanges.Add(AttributeChange.CreateAttributeAdd("externalManager", addresses));
+            //    cs = CSEntryChange.Create();
+            //    cs.ObjectModificationType = ObjectModificationType.Update;
+            //    cs.DN = e.Email;
+            //    cs.ObjectType = SchemaConstants.Group;
+            //    cs.AnchorAttributes.Add(AnchorAttribute.Create("id", e.Id));
+            //    cs.AttributeChanges.Add(AttributeChange.CreateAttributeAdd("externalManager", addresses));
 
-                result =
-                    ExportProcessor.PutCSEntryChange(cs, UnitTestControl.Schema.GetSchema().Types[SchemaConstants.Group], UnitTestControl.TestParameters);
+            //    result =
+            //        ExportProcessor.PutCSEntryChange(cs, UnitTestControl.Schema.GetSchema().Types[SchemaConstants.Group], UnitTestControl.TestParameters);
 
-                if (result.ErrorCode != MAExportError.Success)
-                {
-                    Assert.Fail(result.ErrorName);
-                }
+            //    if (result.ErrorCode != MAExportError.Success)
+            //    {
+            //        Assert.Fail(result.ErrorName);
+            //    }
 
-                Thread.Sleep(1000);
+            //    Thread.Sleep(1000);
 
-                CollectionAssert.AreEquivalent(addresses.ToArray(), UnitTestControl.TestParameters.GroupsService.MemberFactory.GetMembership(cs.DN).ExternalManagers.ToArray());
-            }
-            finally
-            {
-                UnitTestControl.Cleanup(e);
-            }
+            //    CollectionAssert.AreEquivalent(addresses.ToArray(), UnitTestControl.TestParameters.GroupsService.MemberFactory.GetMembership(cs.DN).ExternalManagers.ToArray());
+            //}
+            //finally
+            //{
+            //    UnitTestControl.Cleanup(e);
+            //}
         }
     }
 }

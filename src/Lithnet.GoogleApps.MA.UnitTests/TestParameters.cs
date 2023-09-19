@@ -190,6 +190,7 @@ namespace Lithnet.GoogleApps.MA.UnitTests
             }
         }
 
+        public bool ForceOrganizationsFixedTypeOnMissingType { get; set; }
 
         public event EventHandler OnLicenseDataChanged;
 

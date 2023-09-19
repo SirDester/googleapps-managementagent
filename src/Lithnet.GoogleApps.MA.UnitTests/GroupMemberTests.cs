@@ -242,74 +242,74 @@ namespace Lithnet.GoogleApps.MA.UnitTests
         {
             return;
 
-            List<Group> groups = new List<Group>();
+            //List<Group> groups = new List<Group>();
 
-            try
-            {
-                List<CSEntryChange> changes = new List<CSEntryChange>();
+            //try
+            //{
+            //    List<CSEntryChange> changes = new List<CSEntryChange>();
 
-                for (int i = 0; i < 50; i++)
-                {
-                    Group e = UnitTestControl.CreateGroup();
-                    groups.Add(e);
-                    CSEntryChange cs = GroupMemberTests.CreateCSEntryUpdate(e);
+            //    for (int i = 0; i < 50; i++)
+            //    {
+            //        Group e = UnitTestControl.CreateGroup();
+            //        groups.Add(e);
+            //        CSEntryChange cs = GroupMemberTests.CreateCSEntryUpdate(e);
 
-                    List<object> addresses = new List<object>();
+            //        List<object> addresses = new List<object>();
 
-                    for (int j = 0; j < 100; j++)
-                    {
-                        string address = $"user-{Guid.NewGuid()}@lithnet.io";
-                        addresses.Add(address);
-                    }
+            //        for (int j = 0; j < 100; j++)
+            //        {
+            //            string address = $"user-{Guid.NewGuid()}@lithnet.io";
+            //            addresses.Add(address);
+            //        }
 
-                    cs.AttributeChanges.Add(AttributeChange.CreateAttributeAdd("externalMember", addresses));
-                    changes.Add(cs);
-                }
+            //        cs.AttributeChanges.Add(AttributeChange.CreateAttributeAdd("externalMember", addresses));
+            //        changes.Add(cs);
+            //    }
 
-                int directoryServicePoolSize = 30;
-                int threadCount = 0;
+            //    int directoryServicePoolSize = 30;
+            //    int threadCount = 0;
 
-                Task q = new Task(() =>
-                {
-                    Parallel.For(0, 1000, u =>
-                    {
-                        User x = UserTests.CreateUser();
-                        Trace.WriteLine($"Created user {x.PrimaryEmail}");
-                        UnitTestControl.TestParameters.UsersService.Delete(x.Id);
-                    });
-                });
+            //    Task q = new Task(() =>
+            //    {
+            //        Parallel.For(0, 1000, u =>
+            //        {
+            //            User x = UserTests.CreateUser();
+            //            Trace.WriteLine($"Created user {x.PrimaryEmail}");
+            //            UnitTestControl.TestParameters.UsersService.Delete(x.Id);
+            //        });
+            //    });
 
-                q.Start();
+            //    q.Start();
 
-                ParallelOptions op = new ParallelOptions();
-                op.MaxDegreeOfParallelism = directoryServicePoolSize;
+            //    ParallelOptions op = new ParallelOptions();
+            //    op.MaxDegreeOfParallelism = directoryServicePoolSize;
 
-                Parallel.ForEach(changes, op, t =>
-                {
-                    int threadID = Interlocked.Increment(ref threadCount);
+            //    Parallel.ForEach(changes, op, t =>
+            //    {
+            //        int threadID = Interlocked.Increment(ref threadCount);
 
-                    Trace.WriteLine($"Thread count {threadID}");
+            //        Trace.WriteLine($"Thread count {threadID}");
 
-                    try
-                    {
-                        CSEntryChangeResult result =
-                            ExportProcessor.PutCSEntryChange(t, UnitTestControl.Schema.GetSchema().Types[SchemaConstants.Group], UnitTestControl.TestParameters);
+            //        try
+            //        {
+            //            CSEntryChangeResult result =
+            //                ExportProcessor.PutCSEntryChange(t, UnitTestControl.Schema.GetSchema().Types[SchemaConstants.Group], UnitTestControl.TestParameters);
 
-                        if (result.ErrorCode != MAExportError.Success)
-                        {
-                            Assert.Fail(result.ErrorName);
-                        }
-                    }
-                    finally
-                    {
-                        Interlocked.Decrement(ref threadCount);
-                    }
-                });
-            }
-            finally
-            {
-                UnitTestControl.Cleanup(groups.ToArray<object>());
-            }
+            //            if (result.ErrorCode != MAExportError.Success)
+            //            {
+            //                Assert.Fail(result.ErrorName);
+            //            }
+            //        }
+            //        finally
+            //        {
+            //            Interlocked.Decrement(ref threadCount);
+            //        }
+            //    });
+            //}
+            //finally
+            //{
+            //    UnitTestControl.Cleanup(groups.ToArray<object>());
+            //}
         }
 
         private static CSEntryChange CreateCSEntryUpdate(Group e)

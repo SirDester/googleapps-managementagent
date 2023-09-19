@@ -260,7 +260,10 @@ namespace Lithnet.GoogleApps.MA
                 try
                 {
                     Logger.WriteLine("Requesting fields: " + fields);
-                    Logger.WriteLine("Query filter: " + (this.config.UserQueryFilter ?? "<none>"));
+                    Logger.WriteLine("Query filter: " + (string.IsNullOrEmpty(this.config.UserQueryFilter) ? "<none>" : this.config.UserQueryFilter));
+                    Logger.WriteLine("Regex filter: " + (string.IsNullOrEmpty(this.config.UserRegexFilter) ? "<none>" : this.config.UserRegexFilter));
+                    Logger.WriteLine("Import threads: " + MAConfigurationSection.Configuration.ImportThreads);
+
                     ParallelOptions op = new ParallelOptions()
                     {
                         MaxDegreeOfParallelism = MAConfigurationSection.Configuration.ImportThreads,

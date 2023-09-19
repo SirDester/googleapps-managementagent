@@ -15,6 +15,10 @@ namespace Lithnet.GoogleApps.MA
     {
         private PropertyInfo propInfo;
 
+        // Added by SirDester on 25/10/2022
+        public bool ForceFixedTypeOnMissingType { get; set; }
+        // Added by SirDester on 25/10/2022
+
         public IEnumerable<string> MmsAttributeNames
         {
             get
@@ -197,7 +201,7 @@ namespace Lithnet.GoogleApps.MA
 
             if (item.Type == null)
             {
-                if (this.IsPrimary(item))
+                if (ForceFixedTypeOnMissingType || this.IsPrimary(item))
                 {
                     item.Type = this.PrimaryType;
                     return true;
