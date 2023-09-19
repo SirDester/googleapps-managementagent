@@ -192,7 +192,9 @@ namespace Lithnet.GoogleApps.MA.UnitTests
 
         public bool ForceOrganizationsFixedTypeOnMissingType { get; set; }
 
+#pragma warning disable CS0067 // The event 'TestParameters.OnLicenseDataChanged' is never used
         public event EventHandler OnLicenseDataChanged;
+#pragma warning restore CS0067 // The event 'TestParameters.OnLicenseDataChanged' is never used
 
         public string GetRawLicenseData()
         {

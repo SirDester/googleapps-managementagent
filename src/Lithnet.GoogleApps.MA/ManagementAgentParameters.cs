@@ -1164,6 +1164,8 @@ namespace Lithnet.GoogleApps.MA
         {
         }
 
+#pragma warning disable CS0067 // The event 'ManagementAgentParameters.OnLicenseDataChanged' is never used
         public event EventHandler OnLicenseDataChanged;
+#pragma warning restore CS0067 // The event 'ManagementAgentParameters.OnLicenseDataChanged' is never used
     }
 }
